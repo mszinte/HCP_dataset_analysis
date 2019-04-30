@@ -1,7 +1,8 @@
 ## HCP_dataset_analyis
 
-code for analysing HCP dataset
-Subject number correspond to their native names
+- code for analysing HCP dataset
+- subject data can be found https://balsa.wustl.edu/study/show/9Zkk
+- PRF output can be found here: https://osf.io/y4hfn/
 
 ## Analysis specifics
 ---------------------
