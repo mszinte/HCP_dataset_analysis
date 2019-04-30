@@ -1,0 +1,23 @@
+# In https://surfer.nmr.mgh.harvard.edu/fswiki/CorticalParcellation_Yeo2011 
+# download ftp://surfer.nmr.mgh.harvard.edu/pub/data/Yeo_JNeurophysiol11_MNI152.zip
+
+
+# convert annotation to labels
+mri_annotation2label --subject fsaverage --hemi lh --annotation Yeo2011_7Networks_N1000 --outdir  /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label
+
+mri_annotation2label --subject fsaverage --hemi rh --annotation Yeo2011_7Networks_N1000 --outdir  /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label
+
+
+# convert label to gii surface (1. convert inflated in gii, 2. define label ascii, 3. use label2surf)
+
+mris_convert /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/surf/lh.inflated /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/surf/lh.inflated.gii
+
+echo  /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/lh.7Networks_7.label > /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/lh_listOfAreas.txt
+
+label2surf -s /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/surf/lh.inflated.gii -o /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/lh.7Networks_7.gii -l /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/lh_listOfAreas.txt
+
+mris_convert /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/surf/rh.inflated /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/surf/rh.inflated.gii
+
+echo  /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/rh.7Networks_7.label > /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/rh_listOfAreas.txt
+
+label2surf -s /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/surf/rh.inflated.gii -o /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/rh.7Networks_7.gii -l /Users/martin/disks/ae_S/2018/visual/nprf_hcp/pp_data/freesurfer/fsaverage/yeo_label/rh_listOfAreas.txt
